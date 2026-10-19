@@ -1,0 +1,70 @@
+ Planification des tâches — Mythoria
+
+Projet : Mythoria — Jeu de cartes à collectionner  
+Développeur : Ayoub Boussih  
+Date de début : 19/10/2026  
+Date limite : 27/10/2026 à 11h59
+
+1. Objectif du projet
+
+Concevoir et développer un site web interactif et responsive pour Mythoria, un jeu de cartes à collectionner dans un univers Dark Fantasy. Le site permettra aux utilisateurs de découvrir et d'acheter des boosters, d'ouvrir des cartes virtuelles, de gérer leur collection et de créer leur propre deck.
+
+2. Technologies utilisées
+
+- HTML5 : structure des pages web.
+- CSS3 et Tailwind CSS : design et mise en page responsive.
+- JavaScript : interactions et logique du jeu.
+- DOM : manipulation dynamique des éléments HTML.
+- LocalStorage : sauvegarde locale du panier, de la collection et du deck.
+- Git et GitHub : gestion des versions et hébergement du code source.
+- Vercel : déploiement du site web.
+
+3. Planification des tâches
+
+| Période | Tâches | Résultat attendu |
+|---|---|---|
+| 19/10/2026 | Découverte de Tailwind CSS, création du repository GitHub, préparation de la structure du projet et conception de la  page Home. | Structure du projet et première interface. |
+| 20/10/2026 | Apprentissage pratique du DOM, création de la boutique, affichage des boosters et développement du panier avec gestion des quantités et du total. | Boutique et panier fonctionnels. |
+| 21/10/2026 | Finalisation des pages Home et Booster Shop, sauvegarde du panier avec LocalStorage, rédaction du README et de la planification, premier déploiement sur Vercel. | Premier livrable : site publié et code source disponible sur GitHub. |
+| 22/10/2026 | Création du catalogue des cartes en JavaScript, définition des types, des raretés et des probabilités, développement de l'ouverture aléatoire des boosters. | Système d'ouverture des boosters fonctionnel. |
+| 23/10/2026 | Développement de la page My Grimoire, affichage des cartes obtenues, filtres par type et rareté, sauvegarde de la collection. | Collection interactive et persistante. |
+| 24/10/2026 | Création de la page My Deck, ajout et suppression des cartes, limitation à 20 cartes et calcul des statistiques générales. | Deck fonctionnel avec sauvegarde locale. |
+| 25/10/2026 | Amélioration du design, animations, responsive design et navigation entre les pages. | Interface cohérente et adaptée aux différents écrans. |
+| 26/10/2026 | Tests fonctionnels, correction des bugs, vérification de l'accessibilité, contrôle du code et mise à jour de la documentation. | Version finale testée et documentée. |
+| 27/10/2026 | Vérification du déploiement Vercel, contrôle du repository GitHub et préparation de la présentation finale. | Livraison finale avant 11h59. |
+
+4. Fonctionnalités principales
+
+- Présentation du jeu sur la page Home.
+- Boutique de boosters avec gestion du panier.
+- Simulation de validation de commande sans paiement réel.
+- Ouverture aléatoire des boosters selon des probabilités définies.
+- Collection de cartes avec filtres et détails.
+- Création et gestion d'un deck limité à 20 cartes uniques.
+- Sauvegarde des données avec LocalStorage.
+- Interface responsive et navigation entre les pages.
+
+5. Livrables
+
+Premier livrable — 21/10/2026
+- Lien du site déployé sur Vercel.
+- Lien du repository GitHub.
+- Code source des pages Home et Booster Shop avec panier fonctionnel.
+- Fichier README.md.
+- Fichier planification.md.
+
+ Livrable final — 27/10/2026 avant 11h59
+- Lien du site final déployé sur Vercel.
+- Repository GitHub contenant l'ensemble du code source.
+- Pages et fonctionnalités demandées dans le brief.
+- README.md et planification.md à jour.
+
+6. Critères de réussite
+
+- Fonctionnalités principales opérationnelles.
+- Design responsive sur mobile et ordinateur.
+- Sauvegarde correcte des données avec LocalStorage.
+- Code structuré, lisible et maintenable.
+- Utilisation de Git et GitHub.
+- Site déployé et accessible sur Vercel.
+- Documentation complète et présentation finale préparée.
