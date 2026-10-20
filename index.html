@@ -2,26 +2,92 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>games market</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mythoria | Jeu de cartes Dark Fantasy</title>
+    <meta name="description" content="Découvrez Mythoria, collectionnez des cartes légendaires et ouvrez des boosters dans un univers Dark Fantasy.">
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body class="bg-black">
-    <header class="bg-black">
-        <img src="/img/Yu-Gi-Oh-trading-card-game-logo.webp" alt="">
-        <form action="" class="">
-            <a href="/index.html">home</a>
-            <a href="#">Boutique</a>
-            <a href="#">Ouverture des boosters</a>
-            <a href="#">Ma collection</a>
-            <a href="#">Création du deck</a>
-        </form>
-    </header>
-    <div class="sora">
-        <img src="/img/085a8374ffeaa46d6196b50035673efd.jpg">
+<body>
+    <div class=" text-white bg-black">
+        <header class="border-b border-amber-500/20 bg-transparent ">
+            <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4">
+
+                <a href="index.html" aria-label="Mythoria - Accueil">
+                    <img src="/img/شعار ميثوريا الذهبي الفانتازي”】【.png" alt="Mythoria" class="w-[170px] h-auto object-contain -my-2">
+                </a>
+
+                <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-sm">
+                    <a href="index.html" class="transition hover:text-amber-400">
+                    Accueil
+                </a>
+                    <a href="boutique.html" class="transition hover:text-amber-400">
+                    Boutique
+                </a>
+                    <a href="ouverture.html" class="transition hover:text-amber-400">
+                    Ouverture
+                </a>
+                    <a href="collection.html" class="transition hover:text-amber-400">
+                    Ma collection
+                </a>
+                    <a href="deck.html" class="transition hover:text-amber-400">
+                    Mon deck
+                </a>
+                </div>
+
+                <a href="#boutique" class="rounded-lg border border-amber-400 px-4 py-2 text-sm font-semibold text-amber-400 transition hover:bg-amber-400 hover:text-black">
+                Panier (0)
+            </a>
+            </nav>
+        </header>
+        <section class="relative isolate overflow-hidden">
+            <img src="/img/أسطورة ميثوريا_ سحر المبارزة (2).png" alt="Univers fantastique et magique de Mythoria" class="absolute inset-0 -z-20 h-full w-full object-cover object-center -blur-xs">
+
+            <div class="absolute inset-0 -z-10 bg-gradient-to-r from-black via-black/75 to-black/20"></div>
+
+            <div class="mx-auto w-full max-w-7xl px-6 py-20">
+
+                <p class="mb-4 font-semibold uppercase tracking-[0.3em] text-amber-400">
+                    Le pouvoir est entre vos cartes
+                </p>
+
+                <h1 class="mb-6 max-w-2xl text-5xl font-black leading-tight sm:text-6xl lg:text-7xl">
+                    Entrez dans le monde de
+                    <span class="text-amber-400">Mythoria</span>
+                </h1>
+
+                <p class="mb-8 max-w-xl text-base leading-7 text-gray-200 sm:text-lg">
+                    Découvrez des héros légendaires, invoquez des créatures obscures et collectionnez des cartes aux pouvoirs uniques.
+                </p>
+                <div class="flex flex-wrap gap-4">
+
+                    <a href="#boutique" class="rounded-lg bg-amber-400 px-6 py-3 font-bold text-black transition hover:bg-amber-300">
+                        Découvrir les boosters
+                    </a>
+
+                    <a href="#collection" class="rounded-lg border border-white/60 px-6 py-3 font-bold transition hover:border-amber-400 hover:text-amber-400">
+                        Ouvrir mon grimoire
+                    </a>
+                </div>
+            </div>
+        </section>
     </div>
+    <section id="boutique" class="mx-auto h-full w-full px-5 py-12 bg-black">
+        <h2 class="mb-6 text-3xl font-bold flex justify-center items-center text-white">
+            Découvrez nos cartes
+        </h2>
+
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-6">
+            <img class=" w-full rounded-lg object-cover" src="/img/cart mklouba.jpg">
+            <img class=" w-full rounded-lg object-cover" src="/img/cart mklouba.jpg">
+            <img class=" w-full rounded-lg object-cover" src="/img/cart mklouba.jpg">
+            <img class=" w-full rounded-lg object-cover" src="/img/cart mklouba.jpg">
+            <img class=" w-full rounded-lg object-cover" src="/img/cart mklouba.jpg">
+            <img class=" w-full rounded-lg object-cover" src="/img/cart mklouba.jpg">
+    </section>
 </body>
 
 </html>
