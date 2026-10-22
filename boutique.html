@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Mythoria | Jeu de cartes Dark Fantasy</title>
-    <meta name="description" content="Découvrez Mythoria, collectionnez des cartes légendaires et ouvrez des boosters dans un univers Dark Fantasy.">
+    <meta name="description" content="Découvrez les boosters Mythoria et créez votre collection de cartes fantastiques.">
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body class="bg-[#100d0b] text-white">
-
-    <header class="border-b border-amber-500/20 bg-[#100d0b]">
+    <header class="border-b border-amber-500/20 bg-transparent ">
         <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4">
 
             <a href="index.html" aria-label="Mythoria - Accueil">
@@ -43,6 +42,362 @@
             </a>
         </nav>
     </header>
+    <section class="mx-auto max-w-7xl px-5 py-8">
+        <div class="relative overflow-hidden rounded-2xl border border-amber-500/20">
+            <img src="/img/850406342135512261.jpg" alt="Univers fantastique Mythoria" class="h-64 w-full object-cover md:h-96">
+
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/50 px-4 text-center">
+                <h1 class="text-3xl font-bold text-amber-400 md:text-5xl">
+                    Boutique Mythoria
+                </h1>
+                <p class="mt-4 max-w-2xl text-sm text-gray-200 md:text-lg">
+                    Découvrez des boosters légendaires et préparez votre prochain deck.
+                </p>
+                <a href="#boosters" class="mt-6 rounded-lg bg-amber-400 px-6 py-3 font-bold text-black transition hover:bg-amber-300">
+                    Découvrir les boosters
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="boosters" class="mx-auto max-w-7xl px-5 py-8">
+
+        <div class="mb-8 text-center">
+
+            <h2 class="text-3xl font-bold text-amber-400">
+                Nos Boosters
+            </h2>
+
+            <p class="mt-3 text-gray-400">
+                Choisissez votre pack et agrandissez votre collection.
+            </p>
+
+        </div>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+            <article class="flex flex-col rounded-2xl border border-green-800 bg-[#151a13] p-5 shadow-lg transition hover:border-green-500">
+
+                <img src="img/Yogi_Beginner_Pack_Green.png" alt="Beginner Pack" class="mb-5 h-64 w-full rounded-xl object-contain">
+
+                <h3 class="mb-3 text-xl font-bold text-green-400">
+                    Beginner Pack
+                </h3>
+
+                <p class="mb-4 text-sm text-gray-300">
+                    Un pack idéal pour les débutants avec des cartes communes et quelques cartes rares.
+                </p>
+
+                <p class="mb-2 text-sm text-gray-400">
+                    Contenu : 8 cartes
+                </p>
+
+                <p class="mb-4 text-sm text-gray-400">
+                    Catégories : Communes, Rares
+                </p>
+
+                <p class="mb-4 text-2xl font-bold text-amber-400">
+                    39 DH
+                </p>
+
+                <div class="mt-auto">
+
+                    <label for="qty-beginner" class="mb-2 block text-sm">
+                        Quantité
+                    </label>
+
+                    <input id="qty-beginner" type="number" class="mb-4 w-full rounded-lg border border-green-800 bg-[#100d0b] px-3 py-2 text-white">
+
+                    <button type="button" class="add-panier w-full rounded-lg bg-green-500 px-4 py-3 font-bold text-black transition hover:bg-green-400" data-id="beginner">
+                        Ajouter au panier
+                    </button>
+
+                </div>
+
+            </article>
+
+            <article class="flex flex-col rounded-2xl border border-amber-800 bg-[#1b160e] p-5 shadow-lg transition hover:border-amber-400">
+
+                <img src="img/Yogi_Summoning_Legends_Gold.png" alt="Summoning of the Legends" class="mb-5 h-64 w-full rounded-xl object-contain">
+
+                <h3 class="mb-3 text-xl font-bold text-amber-400">
+                    Summoning of the Legends
+                </h3>
+
+                <p class="mb-4 text-sm text-gray-300">
+                    Un pack premium pour découvrir des cartes puissantes et des légendes.
+                </p>
+
+                <p class="mb-2 text-sm text-gray-400">
+                    Contenu : 10 cartes
+                </p>
+
+                <p class="mb-4 text-sm text-gray-400">
+                    Catégories : Rares, Épiques, Légendaires
+                </p>
+
+                <p class="mb-4 text-2xl font-bold text-amber-400">
+                    79 DH
+                </p>
+
+                <div class="mt-auto">
+
+                    <label for="qty-summoning" class="mb-2 block text-sm">
+                        Quantité
+                    </label>
+
+                    <input id="qty-summoning" type="number" class="mb-4 w-full rounded-lg border border-amber-800 bg-[#100d0b] px-3 py-2 text-white">
+
+                    <button type="button" class="add-panier w-full rounded-lg bg-amber-400 px-4 py-3 font-bold text-black transition hover:bg-amber-300" data-id="summoning">
+                        Ajouter au panier
+                    </button>
+
+                </div>
+
+            </article>
+
+            <article class="flex flex-col rounded-2xl border border-purple-900 bg-[#160f20] p-5 shadow-lg transition hover:border-purple-500">
+
+                <img src="img/Yogi_Dark_Summoning_Purple.png" alt="Dark Summoning" class="mb-5 h-64 w-full rounded-xl object-contain">
+
+                <h3 class="mb-3 text-xl font-bold text-purple-400">
+                    Dark Summoning
+                </h3>
+
+                <p class="mb-4 text-sm text-gray-300">
+                    Un booster sombre consacré aux monstres, aux serviteurs des ténèbres et aux sorts interdits.
+                </p>
+
+                <p class="mb-2 text-sm text-gray-400">
+                    Contenu : 8 cartes
+                </p>
+
+                <p class="mb-4 text-sm text-gray-400">
+                    Catégories : Ténèbres, Rares, Épiques
+                </p>
+
+                <p class="mb-4 text-2xl font-bold text-amber-400">
+                    59 DH
+                </p>
+
+                <div class="mt-auto">
+
+                    <label for="qty-dark" class="mb-2 block text-sm">
+                        Quantité
+                    </label>
+
+                    <input id="qty-dark" type="number" class="mb-4 w-full rounded-lg border border-purple-800 bg-[#100d0b] px-3 py-2 text-white">
+
+                    <button type="button" class="add-panier w-full rounded-lg bg-purple-500 px-4 py-3 font-bold text-white transition hover:bg-purple-400" data-id="dark">
+                        Ajouter au panier
+                    </button>
+
+                </div>
+
+            </article>
+
+            <article class="flex flex-col rounded-2xl border border-pink-900 bg-[#20121b] p-5 shadow-lg transition hover:border-pink-500">
+
+                <img src="img/Yogi_Lucky_Pack_Pink.png" alt="Lucky Pack" class="mb-5 h-64 w-full rounded-xl object-contain">
+
+                <h3 class="mb-3 text-xl font-bold text-pink-400">
+                    Lucky Pack
+                </h3>
+
+                <p class="mb-4 text-sm text-gray-300">
+                    Un pack mystère avec une sélection aléatoire et une chance de découvrir une carte exceptionnelle.
+                </p>
+
+                <p class="mb-2 text-sm text-gray-400">
+                    Contenu : 8 cartes
+                </p>
+
+                <p class="mb-4 text-sm text-gray-400">
+                    Catégories : Aléatoires, Rares, Épiques
+                </p>
+
+                <p class="mb-4 text-2xl font-bold text-amber-400">
+                    49 DH
+                </p>
+
+                <div class="mt-auto">
+
+                    <label for="qty-lucky" class="mb-2 block text-sm">
+                        Quantité
+                    </label>
+
+                    <input id="qty-lucky" type="number" class="mb-4 w-full rounded-lg border border-pink-800 bg-[#100d0b] px-3 py-2 text-white">
+
+                    <button type="button" class="add-panier w-full rounded-lg bg-pink-500 px-4 py-3 font-bold text-black transition hover:bg-pink-400" data-id="lucky">
+                        Ajouter au panier
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <section id="panier" class="mx-auto max-w-7xl px-5 py-10">
+
+        <div class="rounded-2xl border border-amber-500/30 bg-[#18120d] p-5 md:p-8">
+
+            <div class="mb-6 flex flex-wrap items-center justify-between gap-4">
+
+                <h2 class="text-2xl font-bold text-amber-400 md:text-3xl">
+                    Mon panier
+                </h2>
+
+                <button id="viderPanier" type="button" class="rounded-lg border border-red-500 px-4 py-2 text-sm text-red-400 transition hover:bg-red-500 hover:text-white">
+                    Vider le panier
+                </button>
+
+            </div>
+            <div id="listePanier" class="space-y-4">
+
+                <p class="py-6 text-center text-gray-400">
+                    Votre panier est vide.
+                </p>
+
+            </div>
+
+
+            <div class="mt-6 border-t border-amber-500/20 pt-6">
+
+                <div class="flex items-center justify-between gap-4">
+
+                    <p class="text-lg text-gray-300">
+                        Nombre de boosters :
+                    </p>
+
+                    <p id="nombreArticles" class="font-bold">
+                        0
+                    </p>
+
+                </div>
+                <div class="mt-4 flex items-center justify-between gap-4">
+
+                    <p class="text-lg font-bold">
+                        Total :
+                    </p>
+
+                    <p id="totalPrix" class="text-2xl font-bold text-amber-400">
+                        0 DH
+                    </p>
+
+                </div>
+                <button id="commander" type="button" class="mt-6 w-full rounded-lg bg-amber-400 px-6 py-3 font-bold text-black transition hover:bg-amber-300">
+                    Valider la commande
+                </button>
+
+                <p class="mt-3 text-center text-sm text-gray-500">
+                    Paiement simulé — aucune transaction réelle.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="mx-auto max-w-7xl px-5 py-10">
+
+        <h2 class="mb-6 text-2xl font-bold uppercase text-amber-400">
+            Cartes du Beginner Pack
+        </h2>
+
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+
+            <img src="/img/begginer2.jpg" alt="Carte Beginner" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/beginercart1.jpg" alt="Carte Beginner" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/beginercart3.jpg" alt="Carte Beginner" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/beginercart5.jpg" alt="Carte Beginner" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/beginner.jpg" alt="Carte Beginner" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/beginner6.jpg" alt="Carte Beginner" class="w-full rounded-lg transition hover:scale-140">
+
+        </div>
+
+    </section>
+
+
+    <section class="mx-auto max-w-7xl px-5 py-10">
+
+        <h2 class="mb-6 text-2xl font-bold uppercase text-amber-400">
+            Summoning of the Legends
+        </h2>
+
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+
+            <img src="/img/summoning.jpg" alt="Carte légendaire" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/summoning2.jpg" alt="Carte légendaire" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/summoning3.jpg" alt="Carte légendaire" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/summoning4.jpg" alt="Carte légendaire" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/summoning5.jpg" alt="Carte légendaire" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/summoning7.jpg" alt="Carte légendaire" class="w-full rounded-lg transition hover:scale-140">
+
+        </div>
+
+    </section>
+
+
+    <section class="mx-auto max-w-7xl px-5 py-10">
+
+        <h2 class="mb-6 text-2xl font-bold uppercase text-amber-400">
+            Dark Summoning
+        </h2>
+
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+
+            <img src="/img/dark.jpg" alt="Carte Dark" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/dark2.jpg" alt="Carte Dark" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/dark3.jpg" alt="Carte Dark" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/dark5.jpg" alt="Carte Dark" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/dark6.jpg" alt="Carte Dark" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/dark4.jpg" alt="Carte Dark" class="w-full rounded-lg transition hover:scale-140">
+
+        </div>
+
+    </section>
+    <section class="mx-auto max-w-7xl px-5 py-10">
+
+        <h2 class="mb-6 text-2xl font-bold uppercase text-amber-400">
+            Lucky Pack
+        </h2>
+
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+
+            <img src="/img/lucky.jpg" alt="Carte Dark" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/lucky2.jpg" alt="Carte Dark" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/lucky3.jpg" alt="Carte Dark" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/lucky4.jpg" alt="Carte Dark" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/lucky5.jpg" alt="Carte Dark" class="w-full rounded-lg transition hover:scale-140">
+
+            <img src="/img/lucky6.jpg" alt="Carte Dark" class="w-full rounded-lg transition hover:scale-140">
+
+        </div>
+
+    </section>
 
 </body>
 

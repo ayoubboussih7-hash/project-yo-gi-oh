@@ -8,7 +8,7 @@ const carte5 = document.getElementById("carte5");
 let s = 0
 carte.addEventListener("click", function () {
     if (s === 0) {
-        carte.src = "/img/cart1.jpg";
+        carte.src = "/img/lucky.jpg";
         s = 1
 
     } else if (s === 1) {
@@ -19,7 +19,7 @@ carte.addEventListener("click", function () {
 let v = 0
 carte1.addEventListener("click", function () {
     if (v === 0) {
-        carte1.src = "/img/cart2.jpg";
+        carte1.src = "/img/lucky2.jpg";
         v = 1
     } else if (v === 1) {
         carte1.src = "/img/cart mklouba.jpg"
@@ -29,7 +29,7 @@ carte1.addEventListener("click", function () {
 let f = 0
 carte2.addEventListener("click", function () {
     if (f === 0) {
-        carte2.src = "/img/cart3.jpg";
+        carte2.src = "/img/lucky3.jpg";
         f = 1
     } else if (f === 1) {
         carte2.src = "/img/cart mklouba.jpg";
@@ -39,7 +39,7 @@ carte2.addEventListener("click", function () {
 let r = 0
 carte3.addEventListener("click", function () {
     if (r === 0) {
-        carte3.src = "/img/cart4.jpg";
+        carte3.src = "/img/lucky4.jpg";
         r = 1
     } else if (r === 1) {
         carte3.src = "/img/cart mklouba.jpg";
@@ -49,7 +49,7 @@ carte3.addEventListener("click", function () {
 let g = 0
 carte4.addEventListener("click", function () {
     if (g === 0) {
-        carte4.src = "/img/cart5.jpg";
+        carte4.src = "/img/lucky5.jpg";
         g = 1
     } else if (g === 1) {
         carte4.src = "/img/cart mklouba.jpg";
@@ -59,10 +59,12 @@ carte4.addEventListener("click", function () {
 let u = 0
 carte5.addEventListener("click", function () {
     if (u === 0) {
-        carte5.src = "/img/cart6.jpg";
+        carte5.src = "/img/lucky6.jpg";
         u = 1
     } else if (u === 1) {
         carte5.src = "/img/cart mklouba.jpg";
         u = 0
     }
 });
+
+// js for boutique //
