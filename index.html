@@ -11,13 +11,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body>
+<body class="bg-[#100d0b] text-white">
     <div class=" text-white bg-black">
         <header class="border-b border-amber-500/20 bg-transparent ">
             <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4">
 
                 <a href="index.html" aria-label="Mythoria - Accueil">
-                    <img src="/img/شعار ميثوريا الذهبي الفانتازي”】【.png" alt="Mythoria" class="w-[170px] h-auto object-contain -my-2">
+                    <img src="/img/شعار ميثوريا الذهبي الفانتازي”】【.png" alt="Mythoria" class="w-[170px] h-auto object-contain -my-2 hover:scale-110">
                 </a>
 
                 <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-sm">
@@ -38,7 +38,7 @@
                 </a>
                 </div>
 
-                <a href="#boutique" class="rounded-lg border border-amber-400 px-4 py-2 text-sm font-semibold text-amber-400 transition hover:bg-amber-400 hover:text-black">
+                <a href="#boutique" class="rounded-lg border border-amber-400 px-4 py-2 text-sm font-semibold text-amber-400 transition hover:bg-amber-400 hover:text-black hover:scale-110">
                 Panier (0)
             </a>
             </nav>
@@ -63,12 +63,11 @@
                     Découvrez des héros légendaires, invoquez des créatures obscures et collectionnez des cartes aux pouvoirs uniques.
                 </p>
                 <div class="flex flex-wrap gap-4">
-
-                    <a href="#boutique" class="rounded-lg bg-amber-400 px-6 py-3 font-bold text-black transition hover:bg-amber-300">
+                    <a href="#boutique" class="rounded-lg bg-amber-400 px-6 py-3 font-bold text-black transition hover:bg-amber-300 hover:scale-90">
                         Découvrir les boosters
                     </a>
 
-                    <a href="#collection" class="rounded-lg border border-white/60 px-6 py-3 font-bold transition hover:border-amber-400 hover:text-amber-400">
+                    <a href="#collection" class="rounded-lg border border-white/60 px-6 py-3 font-bold transition hover:border-amber-400 hover:text-amber-400 hover:scale-90">
                         Ouvrir mon grimoire
                     </a>
                 </div>
@@ -81,12 +80,118 @@
         </h2>
 
         <div class="grid grid-cols-2 gap-8 md:grid-cols-6">
-            <img id="carte" class=" w-full rounded-lg object-cover" src="/img/cart mklouba.jpg">
-            <img id="carte1" class=" w-full rounded-lg object-cover" src="/img/cart mklouba.jpg">
-            <img id="carte2" class=" w-full rounded-lg object-cover" src="/img/cart mklouba.jpg">
-            <img id="carte3" class=" w-full rounded-lg object-cover" src="/img/cart mklouba.jpg">
-            <img id="carte4" class=" w-full rounded-lg object-cover" src="/img/cart mklouba.jpg">
-            <img id="carte5" class=" w-full rounded-lg object-cover" src="/img/cart mklouba.jpg">
+            <img id="carte" class=" w-full rounded-lg object-cover hover:scale-110" src="/img/cart mklouba.jpg">
+            <img id="carte1" class=" w-full rounded-lg object-cover hover:scale-110" src="/img/cart mklouba.jpg">
+            <img id="carte2" class=" w-full rounded-lg object-cover hover:scale-110" src="/img/cart mklouba.jpg">
+            <img id="carte3" class=" w-full rounded-lg object-cover hover:scale-110" src="/img/cart mklouba.jpg">
+            <img id="carte4" class=" w-full rounded-lg object-cover hover:scale-110" src="/img/cart mklouba.jpg">
+            <img id="carte5" class=" w-full rounded-lg object-cover hover:scale-110" src="/img/cart mklouba.jpg">
+    </section>
+    <section id="boosters" class="mx-auto max-w-7xl px-5 py-8 bg-">
+
+        <div class="mb-8 text-center">
+
+            <h2 class="text-3xl font-bold text-amber-400 uppercase ">
+                les categories
+            </h2>
+
+            <p class="mt-3 text-gray-400">
+                les 4 categories de carts YO-GI-OH
+            </p>
+
+        </div>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+            <article class="flex flex-col rounded-2xl border border-red-800 bg-[#1C0700] p-5 shadow-lg transition hover:border-red-500 hover:scale-110">
+
+                <img src="img/dragon categori.jpg" alt="Beginner Pack" class="mb-5 h-64 w-full rounded-xl object-contain">
+
+                <h3 class="mb-3 text-xl font-bold text-green-400 px-19">
+                    Dragans
+                </h3>
+
+                <p class="mb-4 text-sm text-gray-300">
+                    Un pack idéal pour les débutants avec des cartes communes et quelques cartes rares.
+                </p>
+
+                <p class="mb-2 text-sm text-gray-400">
+                    Contenu : 5 cartes
+                </p>
+
+                <p class="mb-4 text-sm text-gray-400">
+                    Catégories : Communes, Rares
+                </p>
+
+            </article>
+
+            <article class="flex flex-col rounded-2xl border border-amber-800 bg-[#1b160e] p-5 shadow-lg transition hover:border-amber-400 hover:scale-110">
+
+                <img src="img/legend categori.jpg" alt="Summoning of the Legends" class="mb-5 h-64 w-full rounded-xl object-contain">
+
+                <h3 class="mb-3 text-xl font-bold text-amber-400 px-19">
+                    legendes
+                </h3>
+
+                <p class="mb-4 text-sm text-gray-300">
+                    Un pack premium pour découvrir des cartes puissantes et des légendes.
+                </p>
+
+                <p class="mb-2 text-sm text-gray-400">
+                    Contenu : 8 cartes
+                </p>
+
+                <p class="mb-4 text-sm text-gray-400">
+                    Catégories : Rares, Épiques, Légendaires
+                </p>
+
+            </article>
+
+            <article class="flex flex-col rounded-2xl border border-purple-900 bg-[#160f20] p-5 shadow-lg transition hover:border-purple-500 hover:scale-110">
+
+                <img src="img/worias catigori.jpg" alt="Dark Summoning" class="mb-5 h-64 w-full rounded-xl object-contain">
+
+                <h3 class="mb-3 text-xl font-bold text-purple-400 px-19">
+                    worias
+                </h3>
+
+                <p class="mb-4 text-sm text-gray-300">
+                    Un booster sombre consacré aux monstres, aux serviteurs des ténèbres et aux sorts interdits.
+                </p>
+
+                <p class="mb-2 text-sm text-gray-400">
+                    Contenu : 12 cartes
+                </p>
+
+                <p class="mb-4 text-sm text-gray-400">
+                    Catégories : Ténèbres, Rares, Épiques
+                </p>
+
+            </article>
+
+            <article class="flex flex-col rounded-2xl border border-pink-900 bg-[#20121b] p-5 shadow-lg transition hover:border-pink-500 hover:scale-110">
+
+                <img src="img/witch katigori.jpg" alt="Lucky Pack" class="mb-5 h-64 w-full rounded-xl object-contain">
+
+                <h3 class="mb-3 text-xl font-bold text-pink-400 px-19">
+                    witch
+                </h3>
+
+                <p class="mb-4 text-sm text-gray-300">
+                    Un pack mystère avec une sélection aléatoire et une chance de découvrir une carte exceptionnelle.
+                </p>
+
+                <p class="mb-2 text-sm text-gray-400">
+                    Contenu : 16 cartes
+                </p>
+
+                <p class="mb-4 text-sm text-gray-400">
+                    Catégories : Aléatoires, Rares, Épiques
+                </p>
+
+            </article>
+
+        </div>
+
     </section>
     <script src="script.js"></script>
 </body>

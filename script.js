@@ -9,6 +9,7 @@ let s = 0
 carte.addEventListener("click", function () {
     if (s === 0) {
         carte.src = "/img/lucky.jpg";
+        carte.style.hover = "scale-140"
         s = 1
 
     } else if (s === 1) {
@@ -66,5 +67,17 @@ carte5.addEventListener("click", function () {
         u = 0
     }
 });
-
 // js for boutique //
+const list = [
+    {},
+]
+const beginner = document.queryselector("#qty-beginner")
+const summoning = document.queryselector("#qty-summoning")
+const dark = document.queryselector("#qty-dark")
+const lucky = document.queryselector("#qty-lucky")
+
+function pack(packetj) {
+    packetj.addEventListener("click", (e) => {
+        list.push()
+    })
+}
