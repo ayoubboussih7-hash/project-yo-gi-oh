@@ -9,10 +9,10 @@ let s = 0
 if (carte) {
     carte.addEventListener("click", function () {
         if (s === 0) {
-            carte.src = "/img/lucky.jpg";
+            carte.src = "./img/lucky.jpg";
             s = 1
         } else if (s === 1) {
-            carte.src = "/img/cart mklouba.jpg"
+            carte.src = "./img/cart mklouba.jpg"
             s = 0
         }
     });
@@ -21,10 +21,10 @@ let v = 0
 if (carte1) {
     carte1.addEventListener("click", function () {
         if (v === 0) {
-            carte1.src = "/img/lucky2.jpg";
+            carte1.src = "./img/lucky2.jpg";
             v = 1
         } else if (v === 1) {
-            carte1.src = "/img/cart mklouba.jpg"
+            carte1.src = "./img/cart mklouba.jpg"
             v = 0
         }
     });
@@ -33,10 +33,10 @@ let f = 0
 if (carte2) {
     carte2.addEventListener("click", function () {
         if (f === 0) {
-            carte2.src = "/img/lucky3.jpg";
+            carte2.src = "./img/lucky3.jpg";
             f = 1
         } else if (f === 1) {
-            carte2.src = "/img/cart mklouba.jpg";
+            carte2.src = "./img/cart mklouba.jpg";
             f = 0
         }
     });
@@ -45,10 +45,10 @@ let r = 0
 if (carte3) {
     carte3.addEventListener("click", function () {
         if (r === 0) {
-            carte3.src = "/img/lucky4.jpg";
+            carte3.src = "./img/lucky4.jpg";
             r = 1
         } else if (r === 1) {
-            carte3.src = "/img/cart mklouba.jpg";
+            carte3.src = "./img/cart mklouba.jpg";
             r = 0
         }
     });
@@ -57,10 +57,10 @@ let g = 0
 if (carte4) {
     carte4.addEventListener("click", function () {
         if (g === 0) {
-            carte4.src = "/img/lucky5.jpg";
+            carte4.src = "./img/lucky5.jpg";
             g = 1
         } else if (g === 1) {
-            carte4.src = "/img/cart mklouba.jpg";
+            carte4.src = "./img/cart mklouba.jpg";
             g = 0
         }
     });
@@ -69,10 +69,10 @@ let u = 0
 if (carte5) {
     carte5.addEventListener("click", function () {
         if (u === 0) {
-            carte5.src = "/img/lucky6.jpg";
+            carte5.src = "./img/lucky6.jpg";
             u = 1
         } else if (u === 1) {
-            carte5.src = "/img/cart mklouba.jpg";
+            carte5.src = "./img/cart mklouba.jpg";
             u = 0
         }
     });
@@ -175,253 +175,3 @@ if (btnclick) {
         affichage(totalPrix, nombreArticles)
     })
 }
-// data carts  //
-const data = [{
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-},
-{
-    id: 2,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 3,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 4,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 5,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 6,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 7,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 8,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 9,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 10,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 11,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 12,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 13,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 14,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 15,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 16,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 17,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 18,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-}, {
-    id: 1,
-    nom: "Dragon des Ombres",
-    type: "Monstre",
-    rarete: "Legendary",
-    image: "images/dragon.png"
-},
-]
