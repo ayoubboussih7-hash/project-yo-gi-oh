@@ -93,7 +93,7 @@ const totalPrix = document.getElementById("totalPrix")
 const nombreArticles = document.getElementById("nombreArticles")
 const btnclick = document.getElementById("viderPanier");
 
-
+// button ajouter //
 if (btn1) {
     btn1.addEventListener("click", (e) => {
         e.preventDefault()
@@ -106,6 +106,7 @@ if (btn1) {
         affichage(totalPrix, nombreArticles)
     })
 }
+
 if (btn2) {
     btn2.addEventListener("click", (e) => {
         e.preventDefault()
@@ -118,6 +119,7 @@ if (btn2) {
         affichage(totalPrix, nombreArticles)
     })
 }
+
 if (btn3) {
     btn3.addEventListener("click", (e) => {
         e.preventDefault()
@@ -130,6 +132,7 @@ if (btn3) {
         affichage(totalPrix, nombreArticles)
     })
 }
+
 if (btn4) {
     btn4.addEventListener("click", (e) => {
         e.preventDefault()
@@ -142,7 +145,7 @@ if (btn4) {
         affichage(totalPrix, nombreArticles)
     })
 }
-
+// function ajouter //
 function affichage(totalPrix, nombreArticles) {
     if (list.length <= 0) {
         totalPrix.textContent = 0
@@ -153,7 +156,7 @@ function affichage(totalPrix, nombreArticles) {
         let nombreArt = 0
         let contenu = "";
         list.forEach((e) => {
-            contenu += `<p> le pack :${e.pack} / le contiter : ${e.contite} / et le total cart ${e.carts} / le prix : ${e.prix}</p>`
+            contenu += `<div class="flex justify-between"> <p> le pack :${e.pack} / le contiter : ${e.contite} / et le total cart ${e.carts} / le prix : ${e.prix}</p><button href="#" id="sumpr" class="rounded-lg border text-amber-400 border-amber-400 px-6 py-3 font-bold transition hover:border-red-900 hover:text-red-500 hover:scale-90 px-11">sumprim</button> </div>`
             total += e.prix
             nombreArt++
         })
@@ -162,13 +165,263 @@ function affichage(totalPrix, nombreArticles) {
         nombreArticles.textContent = nombreArt;
     }
 }
+
 if (btnclick) {
     btnclick.addEventListener("click", (e) => {
         for (let i = 0; i < list.length; i++) {
             listoverture.push(list[i])
         }
-        console.log(listoverture)
         list.length = 0
         affichage(totalPrix, nombreArticles)
     })
 }
+// data carts  //
+const data = [{
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+},
+{
+    id: 2,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 3,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 4,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 5,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 6,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 7,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 8,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 9,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 10,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 11,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 12,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 13,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 14,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 15,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 16,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 17,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 18,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+}, {
+    id: 1,
+    nom: "Dragon des Ombres",
+    type: "Monstre",
+    rarete: "Legendary",
+    image: "images/dragon.png"
+},
+]
