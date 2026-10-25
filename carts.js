@@ -1,4 +1,4 @@
-export const cart = [{
+const cart = [{
     id: 0,
     name: "Carte 0",
     image: "img/cart0.jpg",

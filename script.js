@@ -93,85 +93,100 @@ const totalPrix = document.getElementById("totalPrix")
 const nombreArticles = document.getElementById("nombreArticles")
 const btnclick = document.getElementById("viderPanier");
 
-// button ajouter //
+function ajouterPack(pack, prix, carts) {
+    const packExiste = list.find(e => e.pack === pack)
+
+    if (packExiste) {
+        packExiste.contite++
+    } else {
+        list.push({
+            contite: 1,
+            prix: prix,
+            carts: carts,
+            pack: pack
+        })
+    }
+
+    affichage(totalPrix, nombreArticles)
+}
+
 if (btn1) {
     btn1.addEventListener("click", (e) => {
         e.preventDefault()
-        list.push({
-            contite: 1,
-            prix: 39,
-            carts: 5,
-            pack: "begner"
-        })
-        affichage(totalPrix, nombreArticles)
+        ajouterPack("begner", 39, 5)
     })
 }
+
 
 if (btn2) {
     btn2.addEventListener("click", (e) => {
         e.preventDefault()
-        list.push({
-            contite: 1,
-            prix: 59,
-            carts: 8,
-            pack: "summoner"
-        })
-        affichage(totalPrix, nombreArticles)
+        ajouterPack("summoner", 59, 8)
     })
 }
+
 
 if (btn3) {
     btn3.addEventListener("click", (e) => {
         e.preventDefault()
-        list.push({
-            contite: 1,
-            prix: 89,
-            carts: 12,
-            pack: "darck"
-        })
-        affichage(totalPrix, nombreArticles)
+        ajouterPack("darck", 89, 12)
     })
 }
 
 if (btn4) {
     btn4.addEventListener("click", (e) => {
         e.preventDefault()
-        list.push({
-            contite: 1,
-            prix: 119,
-            carts: 16,
-            pack: "lucky"
-        })
-        affichage(totalPrix, nombreArticles)
+        ajouterPack("lucky", 119, 16)
     })
 }
-// function ajouter //
+
 function affichage(totalPrix, nombreArticles) {
-    if (list.length <= 0) {
+    if (list.length === 0) {
         totalPrix.textContent = 0
         nombreArticles.textContent = 0
         listePanier.textContent = "Votre panier est vide"
-    } else {
-        let total = 0
-        let nombreArt = 0
-        let contenu = "";
-        list.forEach((e) => {
-            contenu += `<div class="flex justify-between"> <p> le pack :${e.pack} / le contiter : ${e.contite} / et le total cart ${e.carts} / le prix : ${e.prix}</p><button href="#" id="sumpr" class="rounded-lg border text-amber-400 border-amber-400 px-6 py-3 font-bold transition hover:border-red-900 hover:text-red-500 hover:scale-90 px-11">sumprim</button> </div>`
-            total += e.prix
-            nombreArt++
-        })
-        listePanier.innerHTML = contenu;
-        totalPrix.textContent = total;
-        nombreArticles.textContent = nombreArt;
+        return
     }
-}
 
-if (btnclick) {
-    btnclick.addEventListener("click", (e) => {
-        for (let i = 0; i < list.length; i++) {
-            listoverture.push(list[i])
+    let total = 0
+    let nombreArt = 0
+    let contenu = ""
+
+    list.forEach((e, index) => {
+        contenu += `
+            <div class="flex justify-between items-center gap-4 mb-4">
+                <p>
+                    Pack : ${e.pack}
+                    / Quantité : ${e.contite}
+                    / Cartes : ${e.carts * e.contite}
+                    / Prix : ${e.prix * e.contite} DH
+                </p>
+
+                <button
+                    data-index="${index}"
+                    class="supprimer rounded-lg border border-amber-400
+                    px-4 py-2 text-amber-400 hover:text-red-500 hover:scale-95 hover:border-red-500">
+                    Supprimer
+                </button>
+            </div>
+        `
+
+        total += e.prix * e.contite
+        nombreArt += e.contite
+    })
+
+    listePanier.innerHTML = contenu
+    totalPrix.textContent = total
+    nombreArticles.textContent = nombreArt
+}
+if (listePanier) {
+    listePanier.addEventListener("click", (e) => {
+        if (e.target.classList.contains("supprimer")) {
+            const index = Number(e.target.dataset.index)
+
+            list.splice(index, 1)
+
+            affichage(totalPrix, nombreArticles)
         }
-        list.length = 0
-        affichage(totalPrix, nombreArticles)
     })
 }
