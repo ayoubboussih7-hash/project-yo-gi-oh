@@ -12,7 +12,6 @@
 </head>
 
 <body class="bg-[#100d0b] text-white">
-
     <header class="border-b border-amber-500/20 bg-transparent ">
         <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4">
 
@@ -43,10 +42,75 @@
         </nav>
     </header>
     <section>
-        <div>
 
-        </div>
+        <main class="mx-auto max-w-7xl px-6 py-12">
+
+            <section class="mb-12 text-center">
+                <p class="mb-3 text-sm font-bold uppercase tracking-[0.4em] text-yellow-500">
+                    Le pouvoir des cartes
+                </p>
+
+                <h1 class="mb-4 text-4xl font-black md:text-6xl">
+                    Chambre d'ouverture
+                </h1>
+
+                <p class="mx-auto max-w-2xl text-slate-300">
+                    Choisissez un booster acheté et découvrez vos cartes.
+                </p>
+            </section>
+
+            <section class="mx-auto mb-12 max-w-xl rounded-2xl border border-yellow-500/30 bg-slate-900 p-6">
+
+                <label for="booster" class="mb-3 block font-bold text-yellow-400">
+            Vos boosters disponibles
+        </label>
+
+                <select id="booster" class="mb-5 w-full rounded-lg border border-slate-600 bg-slate-800 p-3 text-white">
+        </select>
+
+                <button id="ouvrirBooster" class="w-full rounded-lg bg-yellow-500 px-6 py-3 font-black text-slate-950 hover:bg-yellow-300">
+            Ouvrir mon booster
+        </button>
+
+                <p id="message" class="mt-4 text-center text-sm text-slate-300" aria-live="polite">
+                    Vos achats apparaîtront ici.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="mb-6 text-center text-2xl font-bold text-yellow-400">
+                    Vos cartes découvertes
+                </h2>
+
+                <div id="resultats" class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                </div>
+            </section>
+
+        </main>
+        <script src="ouverture.js"></script>
+
     </section>
+    <footer class="bg-[#050817] border-t border-[#b88a44]/40 px-6 py-6">
+        <div class="max-w-7xl mx-auto flex flex-col items-center gap-3 text-center">
+            <a href="index.html" class="text-xl font-serif font-bold tracking-[0.2em] text-[#d6ad60]">MYTHORIA</a>
+            <p class="text-sm text-gray-400">
+                Collect your cards. Build your legend.
+            </p>
+            <div class="flex gap-5 text-sm text-gray-400">
+                <a href="index.html" class="hover:text-[#d6ad60] transition">Accueil</a>
+                <a href="boutique.html" class="hover:text-[#d6ad60] transition">Boutique</a>
+                <a href="ouverture.html" class="hover:text-[#d6ad60] transition">Ouverture</a>
+                <a href="collection.html" class="hover:text-[#d6ad60] transition">Ma collection</a>
+                <a href="collection.html" class="hover:text-[#d6ad60] transition">Mon deck</a>
+            </div>
+            <div class="w-full max-w-md h-px bg-gradient-to-r from-transparent via-[#b88a44]/50 to-transparent"></div>
+            <p class="text-xs text-gray-500">
+                © 2026 Mythoria — Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="carts.js"></script>
 </body>
 
 </html>

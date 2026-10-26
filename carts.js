@@ -3,7 +3,7 @@ const cart = [{
     name: "Carte 0",
     image: "img/cart0.jpg",
     type: "Monster",
-    rarity: "Common"
+    rarity: "Common",
 },
 {
     id: 1,
