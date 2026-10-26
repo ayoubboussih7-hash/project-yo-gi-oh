@@ -79,9 +79,6 @@ if (carte5) {
 }
 //                                           ~ js for boutique ~                                                                    //
 
-const list = [];
-const listoverture = [];
-
 const packs = [
     { id: "beginner", nom: "Beginner Pack", prix: 39, cartes: 5 },
     { id: "summoning", nom: "Summoning of the Legends", prix: 59, cartes: 8 },
@@ -89,27 +86,28 @@ const packs = [
     { id: "lucky", nom: "Lucky Pack", prix: 119, cartes: 16 }
 ];
 
+const list = [];
+
 const listePanier = document.getElementById("listePanier");
 const totalPrix = document.getElementById("totalPrix");
 const nombreArticles = document.getElementById("nombreArticles");
-const btnclick = document.getElementById("viderPanier");
+const btnValider = document.getElementById("viderPanier");
 
 const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
 const btn4 = document.getElementById("btn4");
 
-function chargerDonnees(cle) {
+function chargerAchats() {
     try {
-        const donnees = JSON.parse(localStorage.getItem(cle) || "[]");
-        return Array.isArray(donnees) ? donnees : [];
+        const achats = JSON.parse(
+            localStorage.getItem("mythoriaAchats") || "[]"
+        );
+
+        return Array.isArray(achats) ? achats : [];
     } catch {
         return [];
     }
-}
-
-function sauvegarderDonnees(cle, donnees) {
-    localStorage.setItem(cle, JSON.stringify(donnees));
 }
 
 function ajouterPack(packId) {
@@ -117,150 +115,134 @@ function ajouterPack(packId) {
 
     if (!pack) return;
 
-    const packExiste = list.find(e => e.pack === packId);
+    const existant = list.find(article => article.pack === packId);
 
-    if (packExiste) {
-        packExiste.contite++;
+    if (existant) {
+        existant.quantite++;
     } else {
         list.push({
-            pack: packId,
+            pack: pack.id,
             nom: pack.nom,
             prix: pack.prix,
-            carts: pack.cartes,
-            contite: 1
+            cartes: pack.cartes,
+            quantite: 1
         });
     }
 
-    affichage();
+    afficherPanier();
 }
 
-function affichage() {
+function afficherPanier() {
     if (!listePanier || !totalPrix || !nombreArticles) return;
 
+    listePanier.innerHTML = "";
+
     let total = 0;
-    let nombreArt = 0;
+    let nombre = 0;
 
     if (list.length === 0) {
         listePanier.textContent = "Votre panier est vide.";
-    } else {
-        listePanier.innerHTML = "";
-
-        list.forEach((e, index) => {
-            total += e.prix * e.contite;
-            nombreArt += e.contite;
-
-            const ligne = document.createElement("div");
-            ligne.className =
-                "mb-4 flex flex-wrap items-center justify-between gap-4";
-
-            const texte = document.createElement("p");
-            texte.textContent =
-                `${e.nom} / Quantité : ${e.contite} / ` +
-                `Cartes : ${e.carts * e.contite} / ` +
-                `Prix : ${e.prix * e.contite} DH`;
-
-            const supprimer = document.createElement("button");
-            supprimer.type = "button";
-            supprimer.dataset.index = index;
-            supprimer.className =
-                "supprimer rounded-lg border border-amber-400 " +
-                "px-4 py-2 text-amber-400 hover:text-red-500";
-
-            supprimer.textContent = "Supprimer";
-
-            ligne.append(texte, supprimer);
-            listePanier.appendChild(ligne);
-        });
     }
 
+    list.forEach((article, index) => {
+        total += article.prix * article.quantite;
+        nombre += article.quantite;
+
+        const ligne = document.createElement("div");
+        ligne.className =
+            "mb-4 flex flex-wrap items-center justify-between gap-4";
+
+        const texte = document.createElement("p");
+        texte.textContent =
+            `${article.nom} / Quantité : ${article.quantite} / ` +
+            `Cartes : ${article.cartes * article.quantite} / ` +
+            `Prix : ${article.prix * article.quantite} DH`;
+
+        const supprimer = document.createElement("button");
+        supprimer.type = "button";
+        supprimer.dataset.index = index;
+        supprimer.className =
+            "supprimer rounded-lg border border-amber-400 px-4 py-2 text-amber-400";
+        supprimer.textContent = "Supprimer";
+
+        ligne.append(texte, supprimer);
+        listePanier.appendChild(ligne);
+    });
+
     totalPrix.textContent = `${total} DH`;
-    nombreArticles.textContent = nombreArt;
+    nombreArticles.textContent = nombre;
 }
 
-if (btn1) {
-    btn1.addEventListener("click", () => ajouterPack("beginner"));
-}
-if (btn2) {
-    btn2.addEventListener("click", () => ajouterPack("summoning"));
-}
-if (btn3) {
-    btn3.addEventListener("click", () => ajouterPack("dark"));
-}
-if (btn4) {
-    btn4.addEventListener("click", () => ajouterPack("lucky"));
-}
+if (btn1) btn1.addEventListener("click", () => ajouterPack("beginner"));
+if (btn2) btn2.addEventListener("click", () => ajouterPack("summoning"));
+if (btn3) btn3.addEventListener("click", () => ajouterPack("dark"));
+if (btn4) btn4.addEventListener("click", () => ajouterPack("lucky"));
+
 if (listePanier) {
-    listePanier.addEventListener("click", e => {
-        const bouton = e.target.closest(".supprimer");
+    listePanier.addEventListener("click", event => {
+        const bouton = event.target.closest(".supprimer");
+
         if (!bouton) return;
-        const index = Number(bouton.dataset.index);
 
-        if (!Number.isInteger(index) || !list[index]) return;
-
-        list.splice(index, 1);
-        affichage();
+        list.splice(Number(bouton.dataset.index), 1);
+        afficherPanier();
     });
 }
 
-if (btnclick) {
-    btnclick.addEventListener("click", () => {
+if (btnValider) {
+    btnValider.addEventListener("click", () => {
         if (list.length === 0) {
             alert("Votre panier est vide.");
             return;
         }
 
-        const achats = chargerDonnees("mythoriaAchats");
+        const achats = chargerAchats();
 
-        list.forEach(e => {
-            const achatExiste = achats.find(a => a.pack === e.pack);
+        list.forEach(article => {
+            const existant = achats.find(
+                achat => achat.pack === article.pack
+            );
 
-            if (achatExiste) {
-                achatExiste.quantite += e.contite;
+            if (existant) {
+                existant.quantite += article.quantite;
             } else {
                 achats.push({
-                    pack: e.pack,
-                    nom: e.nom,
-                    quantite: e.contite,
-                    cartes: e.carts
+                    pack: article.pack,
+                    nom: article.nom,
+                    quantite: article.quantite,
+                    cartes: article.cartes
                 });
             }
         });
-
-        sauvegarderDonnees("mythoriaAchats", achats);
+        localStorage.setItem("mythoriaAchats", JSON.stringify(achats));
 
         list.length = 0;
-        affichage();
-        if (window.location.pathname.endsWith("boutique.html")) { }
+        afficherPanier();
     });
 }
 
-affichage();
+afficherPanier();
+//  OUVERTURE DES BOOSTERS //
+
 const booster = document.getElementById("booster");
-const resultats = document.getElementById("resultats");
-const message = document.getElementById("message");
 const ouvrirBooster = document.getElementById("ouvrirBooster");
+const message = document.getElementById("message");
+const resultats = document.getElementById("resultats");
 
-const achatsCle = "mythoriaAchats";
-
-function chargerAchats() {
-    try {
-        const achats = JSON.parse(localStorage.getItem(achatsCle) || "[]");
-        return Array.isArray(achats) ? achats : [];
-    } catch {
-        return [];
-    }
-}
-
-function sauvegarderAchats(achats) {
-    localStorage.setItem(achatsCle, JSON.stringify(achats));
-}
+const nombreCartesParPack = {
+    beginner: 5,
+    summoning: 8,
+    dark: 12,
+    lucky: 16
+};
 
 function afficherBoosters() {
+    if (!booster || !ouvrirBooster || !message) return;
+
     const achats = chargerAchats();
+    const disponibles = achats.filter(achat => achat.quantite > 0);
 
     booster.innerHTML = "";
-
-    const disponibles = achats.filter(a => a.quantite > 0);
 
     if (disponibles.length === 0) {
         const option = document.createElement("option");
@@ -272,31 +254,25 @@ function afficherBoosters() {
         message.textContent = "Achetez d'abord un booster dans la boutique.";
         return;
     }
-    ouvrirBooster.disabled = false;
-    disponibles.forEach(a => {
+
+    disponibles.forEach(achat => {
         const option = document.createElement("option");
-        option.value = a.pack;
-        option.textContent = `${a.nom} — ${a.quantite} disponible(s)`;
+        option.value = achat.pack;
+        option.textContent =
+            `${achat.nom} — Quantité disponible : ${achat.quantite}`;
+
         booster.appendChild(option);
     });
 
+    ouvrirBooster.disabled = false;
     message.textContent = "Choisissez un booster à ouvrir.";
 }
 
-async function chargerCartes() {
-    const reponse = await fetch("./cartes.json");
-    if (!reponse.ok) {
-        throw new Error("Impossible de charger cartes.json");
-    }
-    return await reponse.json();
-}
-
-function melanger(tableau) {
-    const copie = [...tableau];
+function melanger(cartes) {
+    const copie = [...cartes];
 
     for (let i = copie.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-
         [copie[i], copie[j]] = [copie[j], copie[i]];
     }
 
@@ -304,6 +280,8 @@ function melanger(tableau) {
 }
 
 function afficherCartes(cartes) {
+    if (!resultats) return;
+
     resultats.innerHTML = "";
 
     cartes.forEach(carte => {
@@ -323,68 +301,65 @@ function afficherCartes(cartes) {
 
         const rarete = document.createElement("p");
         rarete.className = "mt-1 text-sm text-slate-300";
-        rarete.textContent = carte.rarity;
+        rarete.textContent = carte.rarity || "Common";
 
         article.append(image, nom, rarete);
         resultats.appendChild(article);
     });
 }
 
-ouvrirBooster.addEventListener("click", async () => {
-    const packChoisi = booster.value;
-    const achats = chargerAchats();
-    const achat = achats.find(
-        a => a.pack === packChoisi && a.quantite > 0
-    );
+if (ouvrirBooster) {
+    ouvrirBooster.addEventListener("click", () => {
+        const packChoisi = booster.value;
+        const achats = chargerAchats();
 
-    if (!achat) {
-        message.textContent = "Ce booster n'est pas disponible.";
-        afficherBoosters();
-        return;
-    }
-
-    ouvrirBooster.disabled = true;
-    message.textContent = "Ouverture du booster...";
-
-    try {
-        const cartes = await chargerCartes();
-
-        const cartesPack = cartes.filter(
-            carte => carte.pack === packChoisi
+        const achat = achats.find(
+            element =>
+                element.pack === packChoisi &&
+                element.quantite > 0
         );
 
-        if (cartesPack.length === 0) {
-            message.textContent =
-                "Aucune carte n'est configurée pour ce booster.";
+        if (!achat) {
+            message.textContent = "Ce booster n'est pas disponible.";
+            afficherBoosters();
             return;
         }
 
-        const nombreCartes = achat.cartes;
-        const cartesTirees = melanger(cartesPack).slice(
+        if (typeof cart === "undefined" || cart.length === 0) {
+            message.textContent = "Les cartes ne sont pas chargées.";
+            return;
+        }
+
+        const nombre = nombreCartesParPack[packChoisi];
+
+        if (!nombre) {
+            message.textContent = "Ce type de booster est inconnu.";
+            return;
+        }
+
+        const cartesTirees = melanger(cart).slice(
             0,
-            Math.min(nombreCartes, cartesPack.length)
+            Math.min(nombre, cart.length)
         );
 
         afficherCartes(cartesTirees);
 
         achat.quantite--;
 
-        sauvegarderAchats(
-            achats.filter(a => a.quantite > 0)
+        const achatsRestants = achats.filter(
+            element => element.quantite > 0
+        );
+
+        localStorage.setItem(
+            "mythoriaAchats",
+            JSON.stringify(achatsRestants)
         );
 
         afficherBoosters();
+
         message.textContent =
             `Booster ouvert ! ${cartesTirees.length} carte(s) découverte(s).`;
-
-    } catch (erreur) {
-        console.error(erreur);
-        message.textContent =
-            "Erreur de chargement. Vérifiez cartes.json et les chemins des images.";
-    } finally {
-        ouvrirBooster.disabled = booster.options.length === 0 ||
-            !booster.value;
-    }
-});
+    });
+}
 
 afficherBoosters();
