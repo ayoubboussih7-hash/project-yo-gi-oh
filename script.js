@@ -87,6 +87,7 @@ const packs = [
 ];
 
 const list = [];
+const listcarts = []
 
 const listePanier = document.getElementById("listePanier");
 const totalPrix = document.getElementById("totalPrix");
@@ -202,7 +203,6 @@ if (btnValider) {
             const existant = achats.find(
                 achat => achat.pack === article.pack
             );
-
             if (existant) {
                 existant.quantite += article.quantite;
             } else {
@@ -275,13 +275,11 @@ function melanger(cartes) {
         const j = Math.floor(Math.random() * (i + 1));
         [copie[i], copie[j]] = [copie[j], copie[i]];
     }
-
     return copie;
 }
 
 function afficherCartes(cartes) {
     if (!resultats) return;
-
     resultats.innerHTML = "";
 
     cartes.forEach(carte => {
@@ -292,7 +290,7 @@ function afficherCartes(cartes) {
         const image = document.createElement("img");
         image.src = carte.image;
         image.alt = carte.name;
-        image.className = "w-full rounded-lg object-contain";
+        image.className = "w-full rounded-lg object-contain hover:scale-120";
         image.loading = "lazy";
 
         const nom = document.createElement("h3");
@@ -300,7 +298,7 @@ function afficherCartes(cartes) {
         nom.textContent = carte.name;
 
         const rarete = document.createElement("p");
-        rarete.className = "mt-1 text-sm text-slate-300";
+        rarete.className = "mt-1 text-sm text-slate-300 ";
         rarete.textContent = carte.rarity || "Common";
 
         article.append(image, nom, rarete);
@@ -336,13 +334,14 @@ if (ouvrirBooster) {
             message.textContent = "Ce type de booster est inconnu.";
             return;
         }
-
-        const cartesTirees = melanger(cart).slice(
-            0,
-            Math.min(nombre, cart.length)
-        );
-
+        const cartesTirees = melanger(cart).splice(0, Math.min(nombre, cart.length))
         afficherCartes(cartesTirees);
+        const collection = JSON.parse(localStorage.getItem("mythoriaCollection") || "[]")
+
+        cartesTirees.forEach(carte => {
+            collection.push(carte)
+        })
+        localStorage.setItem("mythoriaCollection")
 
         achat.quantite--;
 
@@ -363,3 +362,12 @@ if (ouvrirBooster) {
 }
 
 afficherBoosters();
+
+// colection //
+const btncol = document.getElementById("btncol")
+
+if (btncol) {
+    btncol.addEventListener("click", (e) => {
+
+    })
+}
