@@ -334,14 +334,16 @@ if (ouvrirBooster) {
             message.textContent = "Ce type de booster est inconnu.";
             return;
         }
-        const cartesTirees = melanger(cart).splice(0, Math.min(nombre, cart.length))
+        const cartesTirees = melanger(cart).slice(0, Math.min(nombre, cart.length))
+
         afficherCartes(cartesTirees);
+
         const collection = JSON.parse(localStorage.getItem("mythoriaCollection") || "[]")
 
         cartesTirees.forEach(carte => {
             collection.push(carte)
         })
-        localStorage.setItem("mythoriaCollection")
+        localStorage.setItem("mythoriaCollection", JSON.stringify(collection))
 
         achat.quantite--;
 
@@ -364,10 +366,65 @@ if (ouvrirBooster) {
 afficherBoosters();
 
 // colection //
-const btncol = document.getElementById("btncol")
+const grille = document.getElementById("grilleCollection")
+const collectionVide = document.getElementById("collectionVide")
+const nombreCartes = document.getElementById("nombreCartes")
+const filtreType = document.getElementById("filtreType")
+const filtreRarete = document.getElementById("filtreRarete")
 
-if (btncol) {
-    btncol.addEventListener("click", (e) => {
+function afficherCollection() {
+    const collection = JSON.parse(
+        localStorage.getItem("mythoriaCollection") || "[]"
+    );
+    const typechoisi = filtreType.value;
+    const rareteChoisie = filtreRarete.value;
+    const cartesFiltrees = collection.filter(carte => {
+        const typeOK = typechoisi === "tous" || carte.type === typechoisi
+        const rareteOK = rareteChoisie === "toutes" || carte.rarity === rareteChoisie
+        return typeOK && rareteOK
+    })
+    nombreCartes.textContent = collection.length
+    grille.innerHTML = ""
+    collectionVide.classList.toggle("hidden", collection.length > 0)
+    cartesFiltrees.forEach(carte => {
+        const article = document.createElement("article")
+        article.className = "rounded-xl border border-amber-500/30 bg-[#18120d] p-3 transition hover:border-amber-400"
+        const image = document.createElement("img")
+        image.src = carte.image;
+        image.alt = carte.name
+        image.loading = "lazy"
+        image.className = "w-full rounded-lg object-contain"
+
+        const nom = document.createElement("h3")
+
+        nom.className = "mt-3 font-bold text-amber-400"
+        nom.textContent = carte.name
+
+        const type = document.createElement("p")
+
+        type.className = "mt-2 text-sm text-gray-300"
+        type.textContent = carte.type
+
+        const rarete = document.createElement("p")
+
+        rarete.className = "mt-1 text-sm text-purple-300"
+        rarete.textContent = carte.rarity
+
+        article.append(image, nom, type, rarete)
+        grille.appendChild(article)
 
     })
+    if (collection.length > 0 && cartesFiltrees.length === 0) {
+        const message = document.createElement("P")
+
+        message.className = "col-span-full py-10 text-center text-gray-400"
+        message.textContent = "Aucune carte ne correspond aux filtres"
+        grille.appendChild(message)
+    }
+}
+if (grille && collectionVide && nombreCartes && filtreType && filtreRarete) {
+    filtreType.addEventListener("change", afficherCollection)
+    filtreRarete.addEventListener("change", afficherCollection)
+
+    afficherCollection()
 }

@@ -42,13 +42,22 @@
             </a>
         </nav>
     </header>
-    <section class="w-full h-150">
-        <div class="flex flex-col items-center gap-4 h-64 ">
-            <h2 class="text-4xl text-amber-400 font-serif font-bold">votre collection</h2>
-            <button id="btncol" class="w-39 h-10 bg-amber-400 text-black rounded-lg hover:bg-amber-300 hover:scale-110">realiser mon carts</button>
-        </div>
-        <div class="text-center">
-            <p class="text-2xl">you dont have carts </p>
+    <section class="min-h-screen bg-[-#100d0b] px-5 py-12 text-white">
+        <div class="mx-auto max-w-7xl">
+            <h2 class="mb-4 text-center text-4xl font-bold text-amber-400">Votre collection</h2>
+            <p class="mb-8 text-gray-300">Nombre de cartes <span id="nombreCartes" class="font-bold text-amber-400">0</span></p>
+            <div class="mb-10 flex flex-wrap justify-center gap-4">
+                <select name="" id="filtreType" class="rounded-lg border border-amber-400 bg-[#18120d] p-3 text-white">
+                    <option value="tous">Tous les types</option>
+                    <option value="Monster">Monster</option>
+                </select>
+                <select id="filtreRarete" class="rounded-lg border border-amber-400 bg-[#18120d] p-3 text-white">
+                    <option value="toutes" >Toutes les raretes</option>
+                    <option value="Common">Common</option>
+                </select>
+            </div>
+            <p id="collectionVide" class="hidden py-12 text-center text-gray-400">Votre collection est vide. Ouvrez un boster pour obtenir des cartes</p>
+            <div id="grilleCollection" class="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4"></div>
         </div>
     </section>
     <footer class="bg-[#050817] border-t border-[#b88a44]/40 px-6 py-6">
@@ -70,8 +79,8 @@
             </p>
         </div>
     </footer>
-    <script src="script.js"></script>
     <script src="carts.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
