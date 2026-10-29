@@ -428,3 +428,186 @@ if (grille && collectionVide && nombreCartes && filtreType && filtreRarete) {
 
     afficherCollection()
 }
+
+// Mon Deck //
+
+(function () {
+    const cartesDisponibles = document.getElementById("cartesDisponibles")
+    const monDeck = document.getElementById("monDeck")
+    const nombreCartesDeck = document.getElementById("nombreCartes")
+    const deckVide = document.getElementById("deckVide")
+    const progressionDeck = document.getElementById("progressionDeck")
+    const progressionTexte = document.getElementById("progressionTexte")
+
+    if (!cartesDisponibles || !monDeck) {
+        return
+    }
+
+    const MAX_CARTES = 20
+    const CLE_DECK = "mythoriaDeck"
+
+    let categorieActive = "Toutes"
+    let monDeckCartes = []
+
+    function chargerDeck() {
+        try {
+            const idsSauvegardes = JSON.parse(
+                localStorage.getItem(CLE_DECK) || "[]")
+            if (!Array.isArray(idsSauvegardes)) {
+                return []
+            }
+            return idsSauvegardes
+                .map(id => cart.find(carte => String(carte.id) === String(id)))
+                .filter(carte => carte !== undefined)
+                .filter((carte, index, tableau) =>
+                    tableau.findIndex(c => String(c.id) === String(carte.id)) === index
+                )
+                .slice(0, MAX_CARTES)
+        } catch (erreur) {
+            return []
+        }
+    }
+
+    function sauvegarderDeck() {
+        const ids = monDeckCartes.map(carte => carte.id)
+        localStorage.setItem(CLE_DECK, JSON.stringify(ids))
+    }
+
+    function creerCarte(carte, dansDeck = false) {
+        const article = document.createElement("article")
+        article.className = "rounded-2xl border border-amber-600 bg-[#1b160e] p-4 shadow-lg"
+
+        const nom = document.createElement("h3")
+        nom.className = "mt-3 text-center font-bold text-amber-400"
+        nom.textContent = carte.name
+
+        const image = document.createElement("img")
+        image.src = carte.image
+        image.alt = carte.name
+
+        const type = document.createElement("p")
+        type.className = "mt-2 text-center text-sm text-gray-300"
+        type.textContent = carte.type
+
+        const rarete = document.createElement("p")
+        rarete.className = "mt-2 text-center text-sm text-purple-300"
+        rarete.textContent = carte.rarity
+
+        const statistique = document.createElement("div")
+        statistique.className = "mt-3 flex justify-between gap-2 text-xs text-gray-300"
+
+        const attaque = document.createElement("span")
+        attaque.textContent = "ATK : " + carte.attack
+
+        const defense = document.createElement("span")
+        defense.textContent = "DEF : " + carte.defance
+
+        statistique.append(attaque, defense)
+        const boton = document.createElement("button")
+        boton.type = "button"
+
+        boton.className = "mt-4 w-full rounded-full border border-amber-400 py-2 text-sm font-bold text-amber-400 hover:bg-amber-400 hover:text-black hover:scale-108"
+
+        if (dansDeck) {
+            boton.textContent = "retirer - "
+            boton.dataset.action = "retirer"
+        } else {
+            boton.textContent = "Ajouter +"
+            boton.dataset.action = "ajouter"
+        }
+        boton.dataset.id = carte.id
+
+        article.append(image, nom, type, rarete, statistique, boton)
+        return article
+    }
+
+    function afficher() {
+        cartesDisponibles.innerHTML = ""
+        const cartesFiltrees = cart.filter(carte => {
+            if (categorieActive === "Toutes") {
+                return true
+            }
+            return carte.type === categorieActive
+        })
+        cartesFiltrees.forEach(carte => {
+            const elementCarte = creerCarte(carte)
+            cartesDisponibles.appendChild(elementCarte)
+        })
+    }
+
+    function afficherMON() {
+        monDeck.innerHTML = ""
+        if (deckVide) {
+            deckVide.classList.toggle("hidden", monDeckCartes.length > 0)
+        }
+        monDeckCartes.forEach(carte => {
+            const elementcarte = creerCarte(carte, true)
+            monDeck.appendChild(elementcarte)
+        })
+        if (nombreCartesDeck) {
+            nombreCartesDeck.textContent = monDeckCartes.length + "/" + MAX_CARTES
+        }
+        const pourcentage = (monDeckCartes.length / MAX_CARTES) * 100
+
+        if (progressionDeck) {
+            progressionDeck.style.width = pourcentage + "%"
+        }
+        if (progressionTexte) {
+            progressionTexte.textContent = monDeckCartes.length + " /" + MAX_CARTES + " cartes"
+        }
+    }
+
+    function ajouterAuDeck(id) {
+        const carte = cart.find(carte =>
+            String(carte.id) === String(id)
+        )
+        if (!carte) {
+            return
+        }
+        const dejaAjoutee = monDeckCartes.some(carte =>
+            String(carte.id) === String(id)
+        )
+        if (dejaAjoutee) {
+            alert("Cette carte est deja dans le deck")
+            return
+        }
+        if (monDeckCartes.length >= MAX_CARTES) {
+            alert("le deck est complet : 20 cartes maximum")
+            return
+        }
+        monDeckCartes.push(carte)
+        sauvegarderDeck()
+        afficher()
+        afficherMON()
+    }
+
+    function retirerDuDeck(id) {
+        monDeckCartes = monDeckCartes.filter(carte =>
+            String(carte.id) !== String(id)
+        )
+        sauvegarderDeck()
+        afficher()
+        afficherMON()
+    }
+
+    function gereClicCarte(event) {
+        const bouton = event.target.closest("button[data-action]")
+        if (!bouton) {
+            return
+        }
+        const id = bouton.dataset.id
+        const action = bouton.dataset.action
+
+        if (action === "ajouter") {
+            ajouterAuDeck(id)
+        }
+        if (action === "retirer") {
+            retirerDuDeck(id)
+        }
+    }
+    cartesDisponibles.addEventListener("click", gereClicCarte)
+    monDeck.addEventListener("click", gereClicCarte)
+    monDeckCartes = chargerDeck()
+    afficher()
+    afficherMON()
+})()
