@@ -78,7 +78,6 @@ if (carte5) {
     });
 }
 //                                           ~ js for boutique ~                                                                    //
-
 const packs = [
     { id: "beginner", nom: "Beginner Pack", prix: 39, cartes: 5 },
     { id: "summoning", nom: "Summoning of the Legends", prix: 59, cartes: 8 },
@@ -163,7 +162,7 @@ function afficherPanier() {
         supprimer.type = "button";
         supprimer.dataset.index = index;
         supprimer.className =
-            "supprimer rounded-lg border border-amber-400 px-4 py-2 text-amber-400";
+            "supprimer rounded-lg border border-amber-400 px-4 py-2 text-amber-400 hover:scale-95 hover:text-red-700 hover:border-red-700";
         supprimer.textContent = "Supprimer";
 
         ligne.append(texte, supprimer);
