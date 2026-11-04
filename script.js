@@ -7,7 +7,7 @@ const carte4 = document.getElementById("carte4");
 const carte5 = document.getElementById("carte5");
 let s = 0
 if (carte) {
-    carte.addEventListener("click", function () {
+    carte.addEventListener("click", function() {
         if (s === 0) {
             carte.src = "./img/lucky.jpg";
             s = 1
@@ -19,7 +19,7 @@ if (carte) {
 }
 let v = 0
 if (carte1) {
-    carte1.addEventListener("click", function () {
+    carte1.addEventListener("click", function() {
         if (v === 0) {
             carte1.src = "./img/lucky2.jpg";
             v = 1
@@ -31,7 +31,7 @@ if (carte1) {
 }
 let f = 0
 if (carte2) {
-    carte2.addEventListener("click", function () {
+    carte2.addEventListener("click", function() {
         if (f === 0) {
             carte2.src = "./img/lucky3.jpg";
             f = 1
@@ -43,7 +43,7 @@ if (carte2) {
 }
 let r = 0
 if (carte3) {
-    carte3.addEventListener("click", function () {
+    carte3.addEventListener("click", function() {
         if (r === 0) {
             carte3.src = "./img/lucky4.jpg";
             r = 1
@@ -55,7 +55,7 @@ if (carte3) {
 }
 let g = 0
 if (carte4) {
-    carte4.addEventListener("click", function () {
+    carte4.addEventListener("click", function() {
         if (g === 0) {
             carte4.src = "./img/lucky5.jpg";
             g = 1
@@ -67,7 +67,7 @@ if (carte4) {
 }
 let u = 0
 if (carte5) {
-    carte5.addEventListener("click", function () {
+    carte5.addEventListener("click", function() {
         if (u === 0) {
             carte5.src = "./img/lucky6.jpg";
             u = 1
@@ -312,8 +312,8 @@ if (ouvrirBooster) {
 
         const achat = achats.find(
             element =>
-                element.pack === packChoisi &&
-                element.quantite > 0
+            element.pack === packChoisi &&
+            element.quantite > 0
         );
 
         if (!achat) {
@@ -430,7 +430,7 @@ if (grille && collectionVide && nombreCartes && filtreType && filtreRarete) {
 
 // Mon Deck //
 
-(function () {
+(function() {
     const cartesDisponibles = document.getElementById("cartesDisponibles")
     const monDeck = document.getElementById("monDeck")
     const nombreCartesDeck = document.getElementById("nombreCartes")
@@ -612,13 +612,59 @@ if (grille && collectionVide && nombreCartes && filtreType && filtreRarete) {
     afficherMON()
 })()
 //                                 areana                                                                //
+
+const stetignbut = document.getElementById("stetignbut")
+const sttingsMenu = document.getElementById("sttingsMenu")
+const restartGame = document.getElementById("restartGame")
+const quitGame = document.getElementById("quitGame")
+if (stetignbut && sttingsMenu) {
+    stetignbut.addEventListener("click", (evant) => {
+        evant.stopPropagation()
+        sttingsMenu.classList.toggle("hidden")
+    })
+    document.addEventListener("click", (event) => {
+        if (!stetignbut.contains(event.target) &&
+            !sttingsMenu.contains(event.target)
+        ) {
+            sttingsMenu.classList.add("hidden")
+        }
+    })
+}
+if (restartGame) {
+    restartGame.addEventListener("click", () => {
+        const confirmation = confirm("Voulez-vous recommencer la partie ?")
+
+        if (confirmation) {
+            location.reload()
+        }
+    })
+}
+if (quitGame) {
+    quitGame.addEventListener("click", () => {
+        const confirmation = confirm("Voulez-vous quitter la partie ?")
+
+        if (confirmation) {
+            window.location.href = "arena.html"
+        }
+    })
+}
+
+
+
+
+
+
+
+
+
+
+
 const endterndevul = document.getElementById("endterndevul")
 const changedevul = document.getElementById("changedevul")
 const attackdevul = document.getElementById("attackdevul")
 const endyogi = document.getElementById("endyogi")
 const changeyogi = document.getElementById("changeyogi")
 const attackyogi = document.getElementById("attackyogi")
-const stetignbut = document.getElementById("stetignbut")
 
 function aficher() {
     for (let i = 0; i < 5; i++) {
