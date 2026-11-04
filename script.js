@@ -575,6 +575,7 @@ if (grille && collectionVide && nombreCartes && filtreType && filtreRarete) {
             return
         }
         monDeckCartes.push(carte)
+        console.log(monDeckCartes)
         sauvegarderDeck()
         afficher()
         afficherMON()
@@ -610,3 +611,17 @@ if (grille && collectionVide && nombreCartes && filtreType && filtreRarete) {
     afficher()
     afficherMON()
 })()
+//                                 areana                                                                //
+const endterndevul = document.getElementById("endterndevul")
+const changedevul = document.getElementById("changedevul")
+const attackdevul = document.getElementById("attackdevul")
+const endyogi = document.getElementById("endyogi")
+const changeyogi = document.getElementById("changeyogi")
+const attackyogi = document.getElementById("attackyogi")
+const stetignbut = document.getElementById("stetignbut")
+
+function aficher() {
+    for (let i = 0; i < 5; i++) {
+
+    }
+}

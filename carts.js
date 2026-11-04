@@ -22,7 +22,7 @@ const cart = [{
     image: "img/cart2.jpg",
     type: "Legendes",
     rarity: "Common",
-    attack: 0,
+    attack: 4000,
     defance: 1700,
 },
 {
@@ -157,8 +157,8 @@ const cart = [{
     image: "img/cart18.jpg",
     type: "Dragons",
     rarity: "Legendary",
-    attack: 0,
-    defance: 0,
+    attack: 4000,
+    defance: 3400,
 },
 {
     id: 20,
@@ -175,8 +175,8 @@ const cart = [{
     image: "img/cart21.jpg",
     type: "Dragons",
     rarity: "Legendary",
-    attack: 0,
-    defance: 0,
+    attack: 4000,
+    defance: 4000,
 },
 {
     id: 22,
@@ -229,7 +229,7 @@ const cart = [{
     image: "img/cart30.jpg",
     type: "Warriors",
     rarity: "Epic",
-    attack: 0,
+    attack: 4500,
     defance: 3000,
 },
 {
@@ -274,8 +274,8 @@ const cart = [{
     image: "img/cart37.jpg",
     type: "Legendes",
     rarity: "Legendary",
-    attack: 0,
-    defance: 0,
+    attack: 4000,
+    defance: 4000,
 },
 {
     id: 38,
